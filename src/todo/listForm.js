@@ -5,10 +5,15 @@ export default props => {
     if(!props.listItems){
         return null
     }
+    const submitHandler = e => {
+        if(e.key === 'Enter'){
+            props.handleAdd()
+        }
+    }
     return (
         <div role='form' className="todo-form container">
             <div className="input-field">
-                <input id="description" type="text" onChange={props.handleChange} className="validate" value={props.description}/>
+                <input id="description" type="text" onChange={props.handleChange} className="validate" onKeyUp={submitHandler} value={props.description}/>
                 <label htmlFor="description">Título</label>
             </div>
 
